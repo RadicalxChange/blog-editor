@@ -2,31 +2,158 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+h1 {
+  margin: 0 0 1em;
+  font-size: 2.3em;
+  padding: 0;
+  font-weight: 500;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2 {
+  font-size: 2em;
+  margin: 0 0 0.7em;
+  font-weight: 500;
 }
 
-.App-link {
-  color: #61dafb;
+h3 {
+  font-size: 1.8em;
+  margin: 0 0 0.5em;
+  font-weight: 500;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h4 {
+  font-size: 1.5em;
+  margin: 0 0 0.4em;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1.3em;
+  margin: 0 0 0.3em;
+  font-weight: 500;
+}
+h5 {
+  font-size: 1.1em;
+  margin: 0 0 0.3em;
+  font-weight: 500;
+}
+h6 {
+  font-size: 1em;
+  margin: 0 0 0.2em;
+  font-weight: 500;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+pre {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  padding: 1.25rem 1.5rem;
+}
+
+blockquote {
+  font-family: "Amiri", serif;
+  padding-left: 15px;
+  border-left: 12px solid #eee;
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-inline-start: 15px;
+  margin-inline-end: 15px;
+}
+
+li p {
+  display: inline;
+}
+
+li {
+  margin-bottom: 1em;
+}
+
+ol {
+  position: relative;
+  list-style: none;
+  counter-reset: counter;
+}
+
+ol li {
+  counter-increment: counter;
+}
+
+ol li:before {
+  position: absolute;
+  left: 1em;
+  content: counter(counter) ". ";
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+tr:nth-child(odd) > td {
+  background: #f9f9f9;
+}
+
+tr > td,
+table > tfoot > tr > td {
+  padding: 8px;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+th {
+  text-align: center;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+ol {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.author-date {
+  font-family: "Amiri", serif;
+  font-weight: 100;
+  margin: 1.5em 10vw 1.5em;
+  font-style: italic;
+  color: #737373;
+}
+
+.author-date h4 {
+  margin: 0;
+  text-align: right;
+}
+
+.preview img {
+  width: 100%;
+}
+
+.preview {
+  padding: 0 15px 50px;
+}
+
+button:focus {
+  outline: none;
 }
