@@ -2,15 +2,25 @@ $label-margin-bottom: 0rem;
 $form-group-margin-bottom: 0.5rem;
 $input-placeholder-color: #ddd !important;
 $btn-disabled-opacity: 0.3 !important;
-// $custom-select-focus-width: 0;
-// $custom-select-focus-border-color: #fff;
+$border-radius-lg: 0.5em;
 
 $container-max-widths: (
   sm: 540px,
   md: 720px,
-  lg: 800px,
+  lg: 750px,
   xl: 800px
 );
+
+.modal-content {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  max-width: 320px;
+  width: 100%;
+  border-radius: 1em;
+}
 input {
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
 }

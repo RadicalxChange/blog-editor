@@ -157,3 +157,8 @@ li {
 button:focus {
   outline: none;
 }
+
+#modal-override {
+  display: flex;
+  justify-content: center;
+}

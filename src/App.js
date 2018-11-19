@@ -90,7 +90,7 @@ class App extends Component {
       post = { ...this.newPost };
     }
     post.content = md.render(post.contentMD);
-    this.setState({ post });
+    this.setState({ post, cachedId: post._id });
   };
 
   togglePreview = () => {
@@ -174,7 +174,7 @@ class App extends Component {
       .then(doc => {
         if (button === "publish") {
           this.setState({
-            successMsg: "Successfully published!",
+            successMsg: "Published!",
             cachedId: post._id || newId
           });
           this.showModal();
