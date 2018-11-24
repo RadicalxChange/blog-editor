@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import moment from "moment";
+import * as firebaseui from "firebaseui";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import BlogForm from "./components/BlogForm";
 import Preview from "./components/Preview";
 import Header from "./components/Header";
@@ -18,6 +19,29 @@ const md = require("markdown-it")({
   linkify: true,
   typographer: true
 });
+
+const uiConfig = {
+  // Popup signin flow rather than redirect flow.
+  signInFlow: "popup",
+  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+  signInSuccessUrl: "/signedIn",
+  // We will display Google and Facebook as auth providers.
+  signInOptions: [
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID
+  ]
+};
+
+const settings = { timestampsInSnapshots: true };
+
+const hoverInit = firebase.initializeApp(config.hoverboard);
+const hoverDB = hoverInit.firestore();
+hoverDB.settings(settings);
+
+const rxcInit = firebase.initializeApp(config.rxcBlog, "secondary");
+const rxcDB = rxcInit.firestore();
+rxcDB.settings(settings);
 
 class App extends Component {
   constructor(props) {
@@ -56,7 +80,7 @@ class App extends Component {
   }
 
   getPosts = () => {
-    this.rxcDB
+    rxcDB
       .collection("blog")
       .get()
       .then(res => {
@@ -71,15 +95,13 @@ class App extends Component {
   };
 
   initFirestore = () => {
-    const settings = { timestampsInSnapshots: true };
-
-    const hoverInit = firebase.initializeApp(config.hoverboard);
-    this.hoverDB = hoverInit.firestore();
-    this.hoverDB.settings(settings);
-
-    const rxcInit = firebase.initializeApp(config.rxcBlog, "secondary");
-    this.rxcDB = rxcInit.firestore();
-    this.rxcDB.settings(settings);
+    // const settings = { timestampsInSnapshots: true };
+    // this.hoverInit = firebase.initializeApp(config.hoverboard);
+    // this.hoverDB = this.hoverInit.firestore();
+    // this.hoverDB.settings(settings);
+    // this.rxcInit = firebase.initializeApp(config.rxcBlog, "secondary");
+    // this.rxcDB = this.rxcInit.firestore();
+    // this.rxcDB.settings(settings);
   };
 
   selectPost = ({ nativeEvent }) => {
@@ -135,8 +157,7 @@ class App extends Component {
     const { post } = this.state;
     if (this.state.errorMsg) return;
 
-    const db =
-      button === "save" || button === "quietSave" ? this.rxcDB : this.hoverDB;
+    const db = button === "save" || button === "quietSave" ? rxcDB : hoverDB;
 
     /// TODO:  move this into an error check handler
     if (!post.title || !post.contentMD || !post.image || !post.author)
@@ -171,6 +192,7 @@ class App extends Component {
         source: `/data/blog/${urlString}`,
         backgroundColor: "#492F91"
       })
+
       .then(doc => {
         if (button === "publish") {
           this.setState({
@@ -238,7 +260,7 @@ class App extends Component {
 
   delete = () => {
     const id = this.state.post._id;
-    this.hoverDB
+    hoverDB
       .collection("blog")
       .doc(id)
       .delete()
@@ -255,7 +277,7 @@ class App extends Component {
       .catch(function(error) {
         console.error("Error removing document: ", error);
       });
-    this.rxcDB
+    rxcDB
       .collection("blog")
       .doc(id)
       .delete()
@@ -300,9 +322,10 @@ class App extends Component {
       windowSize,
       cachedId
     } = this.state;
-    // console.log(this.state);
+
     return (
       <React.Fragment>
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={rxcInit.auth()} />
         <Header
           posts={posts}
           post={post}
