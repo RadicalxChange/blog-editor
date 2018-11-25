@@ -18,7 +18,7 @@ const HeaderInner = styled.div`
   justify-content: ${({ isSignedIn }) =>
     isSignedIn ? "space-between" : "center"};
   align-items: center;
-  max-width: 95%;
+  max-width: 97%;
   /* width: 100%; */
   margin: 0 auto;
   height: 100%;
@@ -32,7 +32,7 @@ const ButtonWrapTop = styled.div`
   align-items: flex-start;
   button {
     min-width: 80px;
-    margin-left: 1em;
+    margin-left: 0.6em;
   }
 `;
 const ButtonWrapSide = styled.div`
