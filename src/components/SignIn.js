@@ -5,7 +5,7 @@ export default function SignIn(props) {
   return (
     <div
       style={{
-        marginTop: "25vh"
+        marginTop: "15vh"
       }}
     >
       <StyledFirebaseAuth

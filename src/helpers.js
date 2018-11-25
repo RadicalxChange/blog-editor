@@ -6,7 +6,7 @@ export function formatForHoverboard(html) {
     images.forEach(url => {
       hoverHTML = html.replace(
         /<img.+?>/,
-        `<plastic-image srcset=\"${url}" lazy-load preload fade></plastic-image>`
+        `<plastic-image srcset="${url}" lazy-load preload fade></plastic-image>`
       );
     });
   }
