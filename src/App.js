@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
 import firebase from "firebase";
-import config from "./hoverboardConfig";
+import { configDev as config } from "./hoverboardConfig";
 import { formatForHoverboard } from "./helpers";
 import Main from "./components/Main";
 import Header from "./components/Header";
@@ -12,36 +11,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./scss/index.css";
 import "./App.css";
 
-const authEmails = [
-  "m.masurka@gmail.com",
-  "gmeshmusic@gmail.com",
-  "weyl@princeton.edu",
-  "muldoon.mickey@gmail.com",
-  "jeff.yaw@mail.utoronto.ca",
-  "ars9he@virginia.edu",
-  "anna.blender@bavgroup.com",
-  "azb4sj@virginia.edu",
-  "cwt45@cornell.edu",
-  "dstone@bowdoin.edu",
-  "lagrand@uchicago.edu",
-  "jason_trikakis@mac.com",
-  "jossie.cliffordfrith@gmail.com",
-  "kei@gnosis.pm",
-  "mtprewitt@gmail.com",
-  "michaelsalbergo@gmail.com",
-  "nnarains@gmail.com",
-  "npai@alumni.princeton.edu",
-  "sa.devalia@unsw.edu.au",
-  "will@cdinsights.com",
-  "ryan.khurana@advancingprosperity.org",
-  "hello@bcavello.com",
-  "ac1646@georgetown.edu",
-  "jennifer@jennifermorone.com",
-  "mrheingold@gmail.com",
-  "mark@innovativegovernance.org"
-];
-
-const history = createHistory();
 const md = require("markdown-it")({
   html: false,
   xhtmlOut: false,
