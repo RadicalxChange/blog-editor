@@ -342,9 +342,16 @@ class App extends React.Component {
           this.setState({
             modalShowing: true,
             errorMsg:
-              "That email address isn't authorized. Contact Matthew Masurka to add it: m.masurka@gmail.com"
+              "That email address isn't authorized. Contact Matt to add it: m.masurka@gmail.com"
           });
         }
+      })
+      .catch(() => {
+        this.setState({
+          modalShowing: true,
+          errorMsg:
+            "Something went wrong. Contact Matt to sort it out: m.masurka@gmail.com"
+        });
       });
   };
 
