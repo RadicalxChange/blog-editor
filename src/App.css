@@ -155,7 +155,9 @@ li {
 }
 
 .author {
-  margin: 1.5em 6vw 2em;
+  max-width: 800px;
+  width: 90%;
+  margin: 1.5em auto 2em;
   text-align: right;
 }
 
