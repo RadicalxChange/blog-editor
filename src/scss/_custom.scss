@@ -3,6 +3,7 @@ $form-group-margin-bottom: 0.5rem;
 $input-placeholder-color: #ddd !important;
 $btn-disabled-opacity: 0.3 !important;
 $border-radius-lg: 0.5em;
+$link-color: #8259ce;
 
 $container-max-widths: (
   sm: 540px,
@@ -13,7 +14,6 @@ $container-max-widths: (
 
 .modal-content {
   display: flex;
-
   justify-content: center;
   align-items: center;
   min-height: 200px;
