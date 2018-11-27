@@ -7,7 +7,6 @@ const OuterWrap = styled.div`
   position: absolute;
   width: 100%;
   top: 60px;
-  /* padding-top: 60px; */
   overflow-y: scroll;
 `;
 
@@ -62,19 +61,22 @@ export default function Preview({ post, imageError }) {
           </Title>
         </Overlay>
       </Image>
-      <div className="author-date">
+      <div className="author-date author">
         <h4>{post.author}</h4>
+      </div>
+      <div
+        className="container preview"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
+      <div className="author-date date">
         <h4>
+          Published{" "}
           {moment
             .parseZone(post.published)
             .utc()
             .format("MMM DD, YYYY")}
         </h4>
       </div>
-      <div
-        className="container preview"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
     </OuterWrap>
   );
 }
