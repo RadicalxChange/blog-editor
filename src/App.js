@@ -215,7 +215,7 @@ class App extends React.Component {
 
   validatePost = () => {
     const { post } = this.state;
-    const imageValid = post.image.match(/(https?:\/\/.*\.(?:png|jpg|gif))/i);
+    const imageValid = post.image.match(/(https?:\/\/.*\.(png|jpg|gif))/i);
     if (!post.author) {
       this.setState({ errorMsg: "Please specify author." });
       this.showModal();

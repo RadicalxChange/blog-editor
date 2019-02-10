@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Form from "react-bootstrap/lib/Form";
+import Form from "react-bootstrap/Form";
 
 const OuterWrap = styled.div`
   height: calc(100vh - 60px);
