@@ -215,7 +215,6 @@ class App extends React.Component {
 
   validatePost = () => {
     const { post } = this.state;
-    const imageValid = post.image.match(/(https?:\/\/.*\.(png|jpg|gif))/i);
     if (!post.author) {
       this.setState({ errorMsg: "Please specify author." });
       this.showModal();
@@ -229,14 +228,6 @@ class App extends React.Component {
     if (post.brief.length > 250) {
       this.setState({
         errorMsg: "Please shorten synopsis to 250 characters or less."
-      });
-      this.showModal();
-      return;
-    }
-    if (!imageValid) {
-      this.setState({
-        errorMsg:
-          "Invalid or missing header image. Please provide a URL to a large jpg, png or gif."
       });
       this.showModal();
       return;
